@@ -3,7 +3,7 @@
 export const site = {
   name: 'Jan Amundsen',
   intro: 'Hobbyprosjekter og korte notater om det jeg lærer underveis.',
-  email: '',
+  email: 'jan.t.amundsen@gmail.com',
   github: 'https://github.com/jtkarlsen',
   linkedin: '',
 };
