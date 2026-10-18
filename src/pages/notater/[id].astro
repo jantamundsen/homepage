@@ -13,7 +13,7 @@ const { Content } = await render(notat);
 const prosjekt = notat.data.prosjekt ? await getEntry(notat.data.prosjekt) : undefined;
 ---
 
-<Base title={notat.data.tittel}>
+<Base title={notat.data.tittel} description={notat.data.beskrivelse} type="article">
   <div>
     <div class="sti"><a href="/#notater">Notater</a></div>
     <h1 class="tittel">{notat.data.tittel}</h1>

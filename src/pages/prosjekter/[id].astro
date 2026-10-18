@@ -14,7 +14,7 @@ const historikk = [...prosjekt.data.historikk].sort((a, b) => b.dato.getTime() -
 const notater = (await hentNotater()).filter((n) => n.data.prosjekt?.id === prosjekt.id);
 ---
 
-<Base title={prosjekt.data.tittel} description={prosjekt.data.beskrivelse}>
+<Base title={prosjekt.data.tittel} description={prosjekt.data.beskrivelse} type="article">
   <div>
     <div class="sti"><a href="/">Prosjekter</a></div>
     <h1 class="tittel">{prosjekt.data.tittel}</h1>
