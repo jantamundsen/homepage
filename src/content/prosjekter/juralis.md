@@ -2,7 +2,7 @@
 tittel: Juralis
 beskrivelse: Verifiserte og versjonerte data om EUs og FATFs lister over høyrisikoland, slik at man alltid kan bevise hvilken liste som gjaldt på en gitt dato.
 år: 2026
-rekkefølge: 2
+rekkefølge: 3
 type: Data og nettsider
 lenke: https://highriskcountries.eu
 historikk:
