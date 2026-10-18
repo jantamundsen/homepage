@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import { site } from '../site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.intro } = Astro.props;
+const fullTitle = title ? `${title} · ${site.name}` : site.name;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f2f4ef" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="nb_NO" />
+  </head>
+  <body>
+    <div class="side">
+      <aside class="om">
+        <a class="navn" href="/">{site.name}</a>
+        <p>{site.intro}</p>
+        <div class="kontakt">
+          {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
+          {site.github && <a href={site.github}>GitHub</a>}
+          {site.linkedin && <a href={site.linkedin}>LinkedIn</a>}
+        </div>
+      </aside>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

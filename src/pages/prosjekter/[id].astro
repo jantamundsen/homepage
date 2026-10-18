@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import { render } from 'astro:content';
+import { hentProsjekter, hentNotater, formaterMåned } from '../../lib';
+
+export async function getStaticPaths() {
+  const prosjekter = await hentProsjekter();
+  return prosjekter.map((p) => ({ params: { id: p.id }, props: { prosjekt: p } }));
+}
+
+const { prosjekt } = Astro.props;
+const { Content } = await render(prosjekt);
+const historikk = [...prosjekt.data.historikk].sort((a, b) => b.dato.getTime() - a.dato.getTime());
+const notater = (await hentNotater()).filter((n) => n.data.prosjekt?.id === prosjekt.id);
+---
+
+<Base title={prosjekt.data.tittel} description={prosjekt.data.beskrivelse}>
+  <div>
+    <div class="sti"><a href="/">Prosjekter</a></div>
+    <h1 class="tittel">{prosjekt.data.tittel}</h1>
+    <div class="fakta">
+      <span>{prosjekt.data.år}</span>
+      {prosjekt.data.type && <span>{prosjekt.data.type}</span>}
+      {prosjekt.data.lenke && <a href={prosjekt.data.lenke}>Se prosjektet</a>}
+      {prosjekt.data.kildekode && <a href={prosjekt.data.kildekode}>Kildekode</a>}
+    </div>
+  </div>
+
+  <div class="tekst">
+    <Content />
+  </div>
+
+  {notater.length > 0 && (
+    <section aria-labelledby="notater">
+      <h2 class="etikett" id="notater">Notater om prosjektet</h2>
+      <ul class="liste">
+        {notater.map((n) => (
+          <li class="rad">
+            <div class="tid"><time datetime={n.data.dato.toISOString()}>{formaterMåned(n.data.dato)}</time></div>
+            <div><h3><a href={`/notater/${n.id}`}>{n.data.tittel}</a></h3></div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {historikk.length > 0 && (
+    <section aria-labelledby="historikk">
+      <h2 class="etikett" id="historikk">Historikk</h2>
+      <ul class="liste">
+        {historikk.map((h) => (
+          <li class="rad">
+            <div class="tid"><time datetime={h.dato.toISOString()}>{formaterMåned(h.dato)}</time></div>
+            <div><p>{h.tekst}</p></div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>
