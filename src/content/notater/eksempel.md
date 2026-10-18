@@ -1,5 +1,6 @@
 ---
 tittel: Eksempel på et notat
+beskrivelse: En setning om hva notatet handler om.
 dato: 2026-10-18
 prosjekt: narvik-budsjett
 utkast: true

@@ -25,6 +25,8 @@ const notater = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/notater' }),
   schema: z.object({
     tittel: z.string(),
+    // Vises i søkeresultater og når lenken deles. Sidens intro brukes hvis den mangler.
+    beskrivelse: z.string().optional(),
     dato: z.coerce.date(),
     prosjekt: reference('prosjekter').optional(),
     utkast: z.boolean().default(false),
