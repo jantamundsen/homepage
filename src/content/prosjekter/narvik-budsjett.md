@@ -7,6 +7,8 @@ type: Datavisualisering
 lenke: https://jtkarlsen.github.io/narvik-kommune-budsjett/
 kildekode: https://github.com/jtkarlsen/narvik-kommune-budsjett
 historikk:
+  - dato: 2025-03-02
+    tekst: Initiell oppstart, prosjektet ble raskt forlatt
   - dato: 2026-10-17
     tekst: Første versjon, med netto driftsutgifter per tjenesteområde fra SSB.
   - dato: 2026-10-18
