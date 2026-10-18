@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getEntry, render } from 'astro:content';
+import { hentNotater, formaterMåned } from '../../lib';
+
+export async function getStaticPaths() {
+  const notater = await hentNotater();
+  return notater.map((n) => ({ params: { id: n.id }, props: { notat: n } }));
+}
+
+const { notat } = Astro.props;
+const { Content } = await render(notat);
+const prosjekt = notat.data.prosjekt ? await getEntry(notat.data.prosjekt) : undefined;
+---
+
+<Base title={notat.data.tittel}>
+  <div>
+    <div class="sti"><a href="/#notater">Notater</a></div>
+    <h1 class="tittel">{notat.data.tittel}</h1>
+    <div class="fakta">
+      <time datetime={notat.data.dato.toISOString()}>{formaterMåned(notat.data.dato)}</time>
+      {prosjekt && <a href={`/prosjekter/${prosjekt.id}`}>Om {prosjekt.data.tittel}</a>}
+    </div>
+  </div>
+
+  <div class="tekst">
+    <Content />
+  </div>
+</Base>

@@ -1,0 +1,160 @@
+@import '@fontsource-variable/petrona';
+@import '@fontsource-variable/source-sans-3';
+
+:root {
+  --bg: #f2f4ef;
+  --fg: #262b23;
+  --soft: #6b7266;
+  --body: #4b5246;
+  --acc: #4d6a3a;
+  --line: #d8ddd2;
+  --tint: #e4e9de;
+  --head: 'Petrona Variable', Georgia, serif;
+  --text: 'Source Sans 3 Variable', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--text);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+a { color: inherit; text-underline-offset: 3px; }
+a:hover { color: var(--acc); }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+img { max-width: 100%; height: auto; }
+
+/* Navnekolonne til venstre, innholdet sentrert på siden, tom kolonne til høyre */
+.side {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(0, 40rem) minmax(0, 1fr);
+  gap: 48px;
+  padding: clamp(28px, 5vw, 64px) max(20px, 5vw);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .side { grid-template-columns: 13rem minmax(0, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .side { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+}
+
+.om {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  font-size: 15px;
+  position: sticky;
+  top: 32px;
+}
+@media (max-width: 700px) { .om { position: static; } }
+
+.om .navn {
+  font-family: var(--head);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.05;
+  margin: 0;
+  text-decoration: none;
+}
+.om p { margin: 0; color: var(--soft); }
+.om .kontakt { display: grid; gap: 2px; font-size: 14.5px; }
+.om .kontakt a { color: var(--acc); }
+
+main { display: grid; gap: 48px; min-width: 0; }
+
+.etikett {
+  font-family: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 4px;
+}
+
+.liste { list-style: none; margin: 0; padding: 0; }
+.rad {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.rad .tid {
+  font-size: 14px;
+  color: var(--soft);
+  font-variant-numeric: tabular-nums;
+  padding-top: 4px;
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  justify-items: start;
+}
+.rad h3 {
+  font-family: var(--head);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0 0 4px;
+}
+.rad h3 a { text-decoration: none; }
+.rad p { margin: 0; color: var(--body); max-width: 60ch; }
+.rad .om-prosjekt { display: block; font-size: 14px; color: var(--soft); margin-top: 2px; }
+
+@media (max-width: 520px) {
+  .rad { grid-template-columns: 1fr; gap: 4px; }
+  .rad .tid { display: flex; gap: 8px; padding-top: 0; }
+}
+
+.merke {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--acc);
+  background: var(--tint);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.tom { color: var(--soft); margin: 0; padding: 18px 0; border-top: 1px solid var(--line); }
+
+/* Prosjekt- og notatsider */
+.sti { font-size: 14px; color: var(--soft); }
+.tittel {
+  font-family: var(--head);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  line-height: 1.12;
+  font-weight: 400;
+  margin: 6px 0 10px;
+  text-wrap: balance;
+}
+.fakta { font-size: 14.5px; color: var(--soft); display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.fakta a { color: var(--acc); }
+
+.tekst { font-size: 18px; line-height: 1.65; color: #3b4136; max-width: 62ch; }
+.tekst > :first-child { margin-top: 0; }
+.tekst h2, .tekst h3 { font-family: var(--head); font-weight: 600; color: var(--fg); line-height: 1.25; margin: 1.8em 0 .5em; }
+.tekst h2 { font-size: 1.4em; }
+.tekst h3 { font-size: 1.15em; }
+.tekst a { color: var(--acc); }
+.tekst code { font-size: .88em; background: var(--tint); padding: .1em .35em; border-radius: 3px; }
+.tekst pre { background: var(--tint); padding: 14px 16px; border-radius: 4px; overflow-x: auto; font-size: 14.5px; line-height: 1.5; }
+.tekst pre code { background: none; padding: 0; }
+.tekst blockquote { margin: 1.2em 0; padding-left: 16px; border-left: 2px solid var(--line); color: var(--soft); }
+.tekst img { border-radius: 4px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}

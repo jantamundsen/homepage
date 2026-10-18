@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import { getEntry } from 'astro:content';
+import { hentProsjekter, hentNotater, formaterMåned, oppdatertÅr } from '../lib';
+
+const prosjekter = await hentProsjekter();
+const notater = await Promise.all(
+  (await hentNotater()).map(async (n) => ({
+    ...n,
+    prosjekt: n.data.prosjekt ? await getEntry(n.data.prosjekt) : undefined,
+  })),
+);
+---
+
+<Base>
+  <section aria-labelledby="prosjekter">
+    <h2 class="etikett" id="prosjekter">Prosjekter</h2>
+    <ul class="liste">
+      {prosjekter.map((p) => {
+        const oppdatert = oppdatertÅr(p);
+        return (
+          <li class="rad">
+            <div class="tid">
+              {p.data.år}
+              {oppdatert && <span class="merke">Oppdatert {oppdatert}</span>}
+            </div>
+            <div>
+              <h3><a href={`/prosjekter/${p.id}`}>{p.data.tittel}</a></h3>
+              <p>{p.data.beskrivelse}</p>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+
+  <section aria-labelledby="notater">
+    <h2 class="etikett" id="notater">Notater</h2>
+    {notater.length === 0 ? (
+      <p class="tom">Ingen notater ennå.</p>
+    ) : (
+      <ul class="liste">
+        {notater.map((n) => (
+          <li class="rad">
+            <div class="tid"><time datetime={n.data.dato.toISOString()}>{formaterMåned(n.data.dato)}</time></div>
+            <div>
+              <h3><a href={`/notater/${n.id}`}>{n.data.tittel}</a></h3>
+              {n.prosjekt && <span class="om-prosjekt">Om {n.prosjekt.data.tittel}</span>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</Base>
