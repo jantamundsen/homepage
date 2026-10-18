@@ -2,7 +2,7 @@
 tittel: Klær etter været
 beskrivelse: En skjerm i gangen som forteller barna hva de skal ha på seg i dag, basert på værvarselet fra Yr.
 år: 2026
-rekkefølge: 3
+rekkefølge: 2
 type: TRMNL-plugin
 kildekode: https://github.com/jtkarlsen/weather-and-clothing-dashboard-trmnl
 historikk:
