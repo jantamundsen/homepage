@@ -1,6 +1,6 @@
 ---
-tittel: Pengene i Narvik
-beskrivelse: Hvor går pengene i Narvik kommune? Regnskap, budsjett og året så langt, fordelt på tjenester og sammenlignet med landet og Nordland.
+tittel: Oversiktlig over kommuneøkonomi for Narvik
+beskrivelse: En nettside som oversiktlig viser regnskap, budsjetter og finansielle rapporter for Narvik kommune. Regnskap, budsjett og året så langt, fordelt på tjenester og sammenlignet med utvalgte andre kommuner.
 år: 2026
 rekkefølge: 1
 type: Datavisualisering
@@ -13,17 +13,18 @@ historikk:
     tekst: Budsjett mot regnskap, detaljer ned til kostnadstype, og en egen side for året så langt.
 ---
 
-Kommunebudsjetter publiseres som lange dokumenter med tabeller. De er offentlige, men tunge å lese og vanskelige å sammenligne. Pengene i Narvik er en enkel nettside som viser hva Narvik kommune faktisk bruker penger på, år for år, og hvordan det står seg mot landet og Nordland.
+Jeg har lenge ønsket meg en bedre oversikt over budsjetter, regnskap og generell pengebruk i Narvik kommune. Målet er at man som innbygger skal kunne få en forståelse av pengebruken og om den er "for høy" eller på riktig nivå.
 
-## Hva siden viser
+Siden viser historisk årsregnskap, sammenligning mot budsjett og en side med året så langt.
 
-- **Regnskapet**: netto driftsutgifter fordelt på 15 tjenesteområder folk kjenner igjen, som skole, helse og omsorg og vei.
-- **Detaljer**: trykk på et område for å gå ned til en tjeneste, og videre til hva pengene går til, for eksempel lønn. Hvert nivå har sin egen adresse, så det kan deles.
-- **Budsjett mot regnskap**: kommunens vedtatte budsjett ved siden av det som faktisk ble brukt.
-- **Året så langt**: forbruk hittil, avvik og prognose fra tertialrapportene, og skatteinngangen måned for måned.
+Regnskapet er enkelt hentet fra SSB sine KOSTRA-tall, mens budsjetter er hentet fra kommunens egne budsjettdokumenter. Året så langt bruker kommunens egne tertialrapporter. Tallene fra kommunen selv er i dokumenter og er lest og strukturert av KI. 
 
-## Slik er det laget
+Alle tall peker til en kilde så det er mulig å ettergå det som vises på siden.
 
-Tallene kommer fra SSBs KOSTRA-statistikk og fra kommunens egne budsjettdokumenter. Små Python-skript henter dataene, og en GitHub Actions-jobb oppdaterer dem automatisk. Selve siden er statisk, uten server, database eller byggesteg.
+## Tanker om prosjektet
 
-SSB rapporterer rundt 80 KOSTRA-funksjoner. De er gruppert i tjenesteområder folk kjenner igjen, og hver funksjon hører til nøyaktig ett område, slik at summene alltid stemmer.
+Det er veldig mye åpen og god data om kommunens regnskap. Dette prosjektet ble opprinnelig påbegynt i for to år siden, men lagt til side fordi det ble så tidkrevende å gå gjennom all dataen. Dagens KI-modeller gjør alle delene av et slikt arbeid mye raskere og enklere og prosjektet var plutselig lett gjennomførbart på et overfladisk nivå.
+
+Jeg sier overfladisk nivå fordi det er veldig overfladisk informasjon å hente ut av regnskapet og budsjettene. Det er i hvert fall ikke presis nok data til å kunne peke på noe overforbruk uten å sammenligne med andre kommuner. Det er fortsatt umulig med dette presisjonsnivået av regnskaptall å peke på en årsak. 
+
+Et videre arbeid i prosjektet vil forsøke å finne datakilder som kan belyse mer detaljert hva utgiftene er. Offentlighetsloven tilsier at slik informasjon skal gis ut på forespørsel, men jeg vil unngå å belaste noen stakkars saksbehandlere med dette unødig.
