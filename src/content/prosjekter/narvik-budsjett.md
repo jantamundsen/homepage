@@ -1,22 +1,29 @@
 ---
-tittel: Narviks budsjett
-beskrivelse: Hvor pengene i Narvik kommune går, vist slik at det er lett å sammenligne.
+tittel: Pengene i Narvik
+beskrivelse: Hvor går pengene i Narvik kommune? Regnskap, budsjett og året så langt, fordelt på tjenester og sammenlignet med landet og Nordland.
 år: 2026
 rekkefølge: 1
 type: Datavisualisering
+lenke: https://jtkarlsen.github.io/narvik-kommune-budsjett/
+kildekode: https://github.com/jtkarlsen/narvik-kommune-budsjett
 historikk:
-  - dato: 2026-10-01
-    tekst: Første versjon.
+  - dato: 2026-10-17
+    tekst: Første versjon, med netto driftsutgifter per tjenesteområde fra SSB.
+  - dato: 2026-10-18
+    tekst: Budsjett mot regnskap, detaljer ned til kostnadstype, og en egen side for året så langt.
 ---
 
-Hvert år vedtar Narvik kommune et budsjett som bestemmer hva skoler, sykehjem, veier og kulturtilbud får å rutte med. Budsjettet er offentlig, men det publiseres som lange dokumenter med tabeller som er tunge å lese og vanskelige å sammenligne.
+Kommunebudsjetter publiseres som lange dokumenter med tabeller. De er offentlige, men tunge å lese og vanskelige å sammenligne. Pengene i Narvik er en enkel nettside som viser hva Narvik kommune faktisk bruker penger på, år for år, og hvordan det står seg mot landet og Nordland.
 
-Jeg ville gjøre det enklere å få oversikt. Visualiseringen viser hvordan pengene fordeler seg mellom kommunens tjenesteområder, slik at du raskt ser hva som er store og små poster.
+## Hva siden viser
 
-## Hvorfor Narvik
+- **Regnskapet**: netto driftsutgifter fordelt på 15 tjenesteområder folk kjenner igjen, som skole, helse og omsorg og vei.
+- **Detaljer**: trykk på et område for å gå ned til en tjeneste, og videre til hva pengene går til, for eksempel lønn. Hvert nivå har sin egen adresse, så det kan deles.
+- **Budsjett mot regnskap**: kommunens vedtatte budsjett ved siden av det som faktisk ble brukt.
+- **Året så langt**: forbruk hittil, avvik og prognose fra tertialrapportene, og skatteinngangen måned for måned.
 
-Narvik er kommunen jeg kjenner best, og budsjettet påvirker hverdagen til folk jeg kjenner. Et kommunebudsjett er dessuten et godt eksempel på offentlige data som er tilgjengelige, men lite tilgjengelige i praksis.
+## Slik er det laget
 
-## Veien videre
+Tallene kommer fra SSBs KOSTRA-statistikk og fra kommunens egne budsjettdokumenter. Små Python-skript henter dataene, og en GitHub Actions-jobb oppdaterer dem automatisk. Selve siden er statisk, uten server, database eller byggesteg.
 
-Jeg vil gjerne legge til flere år, så det blir mulig å se hvordan prioriteringene endrer seg over tid.
+SSB rapporterer rundt 80 KOSTRA-funksjoner. De er gruppert i tjenesteområder folk kjenner igjen, og hver funksjon hører til nøyaktig ett område, slik at summene alltid stemmer.
