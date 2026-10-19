@@ -4,8 +4,8 @@ beskrivelse: En nettside som oversiktlig viser regnskap, budsjetter og finansiel
 år: 2026
 rekkefølge: 1
 type: Datavisualisering
-lenke: https://jtkarlsen.github.io/narvik-kommune-budsjett/
-kildekode: https://github.com/jtkarlsen/narvik-kommune-budsjett
+lenke: https://jantamundsen.github.io/narvik-kommune-budsjett/
+kildekode: https://github.com/jantamundsen/narvik-kommune-budsjett
 historikk:
   - dato: 2025-03-02
     tekst: Initiell oppstart, prosjektet ble raskt forlatt

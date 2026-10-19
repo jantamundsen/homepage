@@ -34,4 +34,4 @@ Hver push til `main` bygges og publiseres av `.github/workflows/deploy.yml`. Eng
 
 1. I repoet: **Settings → Pages → Source: GitHub Actions**.
 2. Under **Custom domain**: skriv `janamundsen.dev` og huk av **Enforce HTTPS** når sertifikatet er klart.
-3. Hos domeneleverandøren: legg inn A-postene `185.199.108.153`, `185.199.109.153`, `185.199.110.153` og `185.199.111.153` for `janamundsen.dev`, og eventuelt en CNAME-post `www` → `jtkarlsen.github.io`.
+3. Hos domeneleverandøren: legg inn A-postene `185.199.108.153`, `185.199.109.153`, `185.199.110.153` og `185.199.111.153` for `janamundsen.dev`, og eventuelt en CNAME-post `www` → `jantamundsen.github.io`.
