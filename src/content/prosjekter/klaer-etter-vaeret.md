@@ -4,7 +4,7 @@ beskrivelse: En skjerm i gangen som forteller barna hva de skal ha på seg i dag
 år: 2026
 rekkefølge: 2
 type: TRMNL-plugin
-kildekode: https://github.com/jtkarlsen/weather-and-clothing-dashboard-trmnl
+kildekode: https://github.com/jantamundsen/weather-and-clothing-dashboard-trmnl
 historikk:
   - dato: 2026-10-16
     tekst: Første versjon.
