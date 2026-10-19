@@ -5,5 +5,5 @@ export const site = {
   intro: 'Hobbyprosjekter og korte notater om det jeg lærer underveis.',
   email: 'jan.t.amundsen@gmail.com',
   github: 'https://github.com/jtkarlsen',
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/jan-tore-amundsen-92226347/',
 };
