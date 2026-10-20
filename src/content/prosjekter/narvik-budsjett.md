@@ -1,6 +1,6 @@
 ---
-tittel: Oversiktlig over kommuneøkonomi for Narvik
-beskrivelse: En nettside som oversiktlig viser regnskap, budsjetter og finansielle rapporter for Narvik kommune. Regnskap, budsjett og året så langt, fordelt på tjenester og sammenlignet med utvalgte andre kommuner.
+tittel: Åpne tall for Narvik kommune
+beskrivelse: En nettside som viser offentlige tall for økonomi og befolkning for Narvik kommune oversiktlig og i en sammenheng. Tallene kan sammenlignes med utvalgte andre kommuner for å gi en kontekst.
 år: 2026
 rekkefølge: 1
 type: Datavisualisering
@@ -15,11 +15,11 @@ historikk:
     tekst: Budsjett mot regnskap, detaljer ned til kostnadstype, og en egen side for året så langt.
 ---
 
-Jeg har lenge ønsket meg en bedre oversikt over budsjetter, regnskap og generell pengebruk i Narvik kommune. Målet er at man som innbygger skal kunne få en forståelse av pengebruken og om den er "for høy" eller på riktig nivå.
+Prosjektet startet med at jeg lenge har ønsket meg en bedre oversikt over økonomien i Narvik kommune. Men alt henger sammen med alt og det er fornuftig å se dette i sammenheng med befolkningen og eventult annet. Målet er at man som innbygger skal kunne få en forståelse av nåsituasjonen og utviklingen i kommunen og kunne sammenligne med lignende kommuner.
 
-Siden viser historisk årsregnskap, sammenligning mot budsjett og en side med året så langt.
+Siden viser historisk årsregnskap, sammenligning mot budsjett, året så langt, og befolkning for kommunen.
 
-Regnskapet er enkelt hentet fra SSB sine KOSTRA-tall, mens budsjetter er hentet fra kommunens egne budsjettdokumenter. Året så langt bruker kommunens egne tertialrapporter. Tallene fra kommunen selv er i dokumenter og er lest og strukturert av KI. 
+Regnskapet er enkelt hentet fra SSB sine KOSTRA-tall, mens budsjetter er hentet fra kommunens egne budsjettdokumenter. Året så langt bruker kommunens egne tertialrapporter. Tallene fra kommunen selv er i dokumenter og er lest og strukturert av KI. Befolkningsdata er hentet fra SSB.
 
 Alle tall peker til en kilde så det er mulig å ettergå det som vises på siden.
 
