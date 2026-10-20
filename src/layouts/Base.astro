@@ -5,11 +5,17 @@ import { site } from '../site';
 interface Props {
   title?: string;
   description?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
 }
 
-const { title, description = site.intro } = Astro.props;
+const { title, description = site.intro, type = 'website', noindex = false } = Astro.props;
 const fullTitle = title ? `${title} · ${site.name}` : site.name;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// Med build.format 'file' slutter stien på .html under bygging, men lenkene og sitemap bruker adressen uten.
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site);
+const bilde = new URL('/og.png', Astro.site);
+// Navnet er hovedoverskriften på forsiden. På andre sider har innholdet sin egen h1.
+const Navn = Astro.url.pathname === '/' ? 'h1' : 'p';
 ---
 
 <!doctype html>
@@ -19,18 +25,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#f2f4ef" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="nb_NO" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={bilde} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
     <div class="side">
       <aside class="om">
-        <a class="navn" href="/">{site.name}</a>
+        <Navn class="navn"><a href="/">{site.name}</a></Navn>
         <p>{site.intro}</p>
         <div class="kontakt">
           {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
