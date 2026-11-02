@@ -10,13 +10,7 @@ interface Props {
 }
 
 const erForside = Astro.url.pathname === '/';
-const {
-  title,
-  // Fullt navn i søkebeskrivelsen på forsiden, uten at det vises på selve siden.
-  description = erForside ? `${site.fullName}. ${site.intro}` : site.intro,
-  type = 'website',
-  noindex = false,
-} = Astro.props;
+const { title, description = site.intro, type = 'website', noindex = false } = Astro.props;
 const fullTitle = title ? `${title} · ${site.name}` : site.name;
 // Med build.format 'file' slutter stien på .html under bygging, men lenkene og sitemap bruker adressen uten.
 const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site);
@@ -28,8 +22,8 @@ const person = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   '@id': `${site.url}/#person`,
-  name: site.fullName,
-  alternateName: [site.name, 'Jan Tore Amundsen', 'Jan T. Amundsen'],
+  name: site.name,
+  alternateName: ['Jan Amundsen', 'Jan Tore Amundsen', 'Jan T. Amundsen'],
   givenName: 'Jan Tore',
   additionalName: 'Skogli',
   familyName: 'Amundsen',
@@ -59,7 +53,7 @@ const person = {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="author" content={site.fullName} />
+    <meta name="author" content={site.name} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {erForside && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
   </head>
