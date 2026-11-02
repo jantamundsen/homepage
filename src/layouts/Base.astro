@@ -9,13 +9,28 @@ interface Props {
   noindex?: boolean;
 }
 
+const erForside = Astro.url.pathname === '/';
 const { title, description = site.intro, type = 'website', noindex = false } = Astro.props;
 const fullTitle = title ? `${title} · ${site.name}` : site.name;
 // Med build.format 'file' slutter stien på .html under bygging, men lenkene og sitemap bruker adressen uten.
 const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site);
 const bilde = new URL('/og.png', Astro.site);
 // Navnet er hovedoverskriften på forsiden. På andre sider har innholdet sin egen h1.
-const Navn = Astro.url.pathname === '/' ? 'h1' : 'p';
+const Navn = erForside ? 'h1' : 'p';
+// Strukturdata som forteller søkemotorer hvem siden handler om, og hvilke profiler som er samme person.
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${site.url}/#person`,
+  name: site.name,
+  alternateName: ['Jan Amundsen', 'Jan Tore Amundsen', 'Jan T. Amundsen'],
+  givenName: 'Jan Tore',
+  additionalName: 'Skogli',
+  familyName: 'Amundsen',
+  url: `${site.url}/`,
+  email: `mailto:${site.email}`,
+  sameAs: [site.github, site.linkedin].filter(Boolean),
+};
 ---
 
 <!doctype html>
@@ -38,7 +53,9 @@ const Navn = Astro.url.pathname === '/' ? 'h1' : 'p';
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="author" content={site.name} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {erForside && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
   </head>
   <body>
     <div class="side">
