@@ -30,6 +30,28 @@ const person = {
   url: `${site.url}/`,
   email: `mailto:${site.email}`,
   sameAs: [site.github, site.linkedin].filter(Boolean),
+  jobTitle: 'Produktsjef',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Spleis',
+    url: 'https://www.spleis.no',
+    parentOrganization: { '@type': 'Organization', name: 'SpareBank 1' },
+  },
+  homeLocation: {
+    '@type': 'Place',
+    name: 'Bjerkvik',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Narvik',
+      addressRegion: 'Nordland',
+      addressCountry: 'NO',
+    },
+  },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'UiT Norges arktiske universitet' },
+    { '@type': 'CollegeOrUniversity', name: 'Høgskolen i Narvik' },
+  ],
+  knowsAbout: ['Produktutvikling', 'Programvareutvikling', 'Kunstig intelligens'],
 };
 ---
 
