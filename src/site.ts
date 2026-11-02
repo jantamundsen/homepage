@@ -1,7 +1,7 @@
 // Personlige opplysninger som vises i sidekolonnen og i <head>.
 // Felt som står tomme blir ikke vist på siden.
 export const site = {
-  name: 'Jan Tore Skogli Amundsen',
+  name: 'Jan Tore Amundsen',
   url: 'https://janamundsen.dev',
   intro: 'Hobbyprosjekter og korte notater om det jeg lærer underveis.',
   email: 'jan.t.amundsen@gmail.com',
