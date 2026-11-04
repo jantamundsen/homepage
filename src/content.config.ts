@@ -32,6 +32,8 @@ const notater = defineCollection({
     beskrivelse: z.string().optional(),
     dato: z.coerce.date(),
     prosjekt: reference('prosjekter').optional(),
+    // Liten etikett for innhold som ikke er skrevet, f.eks. «podkast» eller «foredrag».
+    type: z.string().optional(),
     utkast: z.boolean().default(false),
   }),
 });

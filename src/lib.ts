@@ -35,3 +35,5 @@ export function oppdatertÅr(p: CollectionEntry<'prosjekter'>) {
   const siste = Math.max(...p.data.historikk.map((h) => h.dato.getFullYear()), p.data.år);
   return siste > p.data.år ? siste : undefined;
 }
+
+export const storForbokstav = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
