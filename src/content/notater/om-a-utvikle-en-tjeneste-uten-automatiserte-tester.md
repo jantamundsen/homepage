@@ -6,6 +6,8 @@ type: podkast
 utkast: false
 ---
 
+I januar 2025 var jeg og kollegaen min Håkon Heskja gjester i Åpen kilde, podkasten til SpareBank 1 Utvikling. Vi snakket om hvorfor Spleis ikke har automatiserte tester, og hvordan det likevel går bra. Her er poengene mine fra samtalen.
+
 Jeg har jobbet i Spleis siden 2017, et fintech-selskap med to millioner unike brukere i måneden. Kodebasen har ingen automatiserte tester, og er skrevet i JavaScript i både frontend og backend, uten typer. Det høres nok uansvarlig ut for mange, men jeg har sett det fungere godt i mange år.
 
 I 2018 slettet utviklingsteamet nesten alle testene. Bare noen få tester rundt prissetting ble igjen. Produktet var umodent og endret seg raskt, og jeg opplevde at testene bremset oss mer enn de hjalp. Jeg klarte ikke å forsvare kostnaden med å lage og vedlikeholde dem. For et lite selskap stod det mellom å lykkes eller å forsvinne, og hastighet var det som trengtes.
@@ -30,4 +32,4 @@ Det har også sine kostnader. Etter hvert som Spleis har vokst med dugnad, organ
 
 Jeg tror mange team har godt av å spørre seg: Hva ville skjedd om vi slettet de automatiserte testene og sluttet å skrive nye? Ville vi fått mer gjort, og hvor mange flere feil ville dukket opp? Spørsmålet er verdt å stille seg om man plages med mye friksjon fra testene.
 
-[Hør episoden på Acast](https://shows.acast.com/apen-kilde/episodes/er-produktutvikling-uten-automatiserte-tester-mulig)
+Hør episoden på [Acast](https://shows.acast.com/apen-kilde/episodes/er-produktutvikling-uten-automatiserte-tester-mulig), [Spotify](https://open.spotify.com/episode/023hcxYPvWtjVEiqanQJGY) eller [Podme](https://podme.com/no/episode/6037886/).
