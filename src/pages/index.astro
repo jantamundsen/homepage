@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getEntry } from 'astro:content';
-import { hentAktiveProsjekter, hentArkiverteProsjekter, hentNotater, formaterMåned, oppdatertÅr, harSide } from '../lib';
+import { hentAktiveProsjekter, hentArkiverteProsjekter, hentNotater, formaterMåned, oppdatertÅr, harSide, storForbokstav } from '../lib';
 
 const prosjekter = await hentAktiveProsjekter();
 const eldre = await hentArkiverteProsjekter();
@@ -46,6 +46,7 @@ const notater = await Promise.all(
             <div class="tid"><time datetime={n.data.dato.toISOString()}>{formaterMåned(n.data.dato)}</time></div>
             <div>
               <h3><a href={`/notater/${n.id}`}>{n.data.tittel}</a></h3>
+              {n.data.type && <span class="om-prosjekt">{storForbokstav(n.data.type)}</span>}
               {n.prosjekt && <span class="om-prosjekt">Om {n.prosjekt.data.tittel}</span>}
             </div>
           </li>
