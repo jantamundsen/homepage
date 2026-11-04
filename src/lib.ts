@@ -7,6 +7,21 @@ export async function hentProsjekter() {
   return alle.sort((a, b) => a.data.rekkefølge - b.data.rekkefølge);
 }
 
+// Aktive prosjekter i valgt rekkefølge.
+export async function hentAktiveProsjekter() {
+  return (await hentProsjekter()).filter((p) => !p.data.arkivert);
+}
+
+// Eldre prosjekter, nyeste først.
+export async function hentArkiverteProsjekter() {
+  return (await hentProsjekter())
+    .filter((p) => p.data.arkivert)
+    .sort((a, b) => b.data.år - a.data.år || a.data.rekkefølge - b.data.rekkefølge);
+}
+
+// Arkiverte prosjekter uten tekst får ingen egen side.
+export const harSide = (p: CollectionEntry<'prosjekter'>) => !p.data.arkivert || !!p.body?.trim();
+
 export async function hentNotater() {
   const alle = await getCollection('notater', ({ data }) => visUtkast || !data.utkast);
   return alle.sort((a, b) => b.data.dato.getTime() - a.data.dato.getTime());

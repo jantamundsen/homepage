@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getEntry } from 'astro:content';
-import { hentProsjekter, hentNotater, formaterMåned, oppdatertÅr } from '../lib';
+import { hentAktiveProsjekter, hentArkiverteProsjekter, hentNotater, formaterMåned, oppdatertÅr, harSide } from '../lib';
 
-const prosjekter = await hentProsjekter();
+const prosjekter = await hentAktiveProsjekter();
+const eldre = await hentArkiverteProsjekter();
 const notater = await Promise.all(
   (await hentNotater()).map(async (n) => ({
     ...n,
@@ -52,4 +53,27 @@ const notater = await Promise.all(
       </ul>
     )}
   </section>
+
+  {eldre.length > 0 && (
+    <section aria-labelledby="eldre-prosjekter" class="arkiv">
+      <h2 class="etikett" id="eldre-prosjekter">Eldre prosjekter</h2>
+      <ul class="liste">
+        {eldre.map((p) => (
+          <li class="rad">
+            <div class="tid">{p.data.år}</div>
+            <div>
+              <h3>
+                {harSide(p) ? <a href={`/prosjekter/${p.id}`}>{p.data.tittel}</a> : p.data.tittel}
+                {p.data.type && <span class="type">{p.data.type}</span>}
+              </h3>
+              <p>
+                {p.data.beskrivelse}
+                {p.data.kildekode && <> <a href={p.data.kildekode}>Kildekode</a></>}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 </Base>
