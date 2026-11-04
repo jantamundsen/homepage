@@ -110,6 +110,10 @@ main { display: grid; gap: 48px; min-width: 0; }
 }
 .rad h3 a { text-decoration: none; }
 .rad p { margin: 0; color: var(--body); max-width: 60ch; }
+.rad h3 .type { font-family: var(--text); font-size: 13px; color: var(--soft); margin-left: 10px; }
+.arkiv .rad { padding: 12px 0; }
+.arkiv .rad h3 { font-size: 18px; }
+.arkiv .rad p { font-size: 15px; color: var(--soft); }
 .rad .om-prosjekt { display: block; font-size: 14px; color: var(--soft); margin-top: 2px; }
 
 @media (max-width: 520px) {

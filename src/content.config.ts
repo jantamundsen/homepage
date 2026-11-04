@@ -17,6 +17,9 @@ const prosjekter = defineCollection({
     historikk: z
       .array(z.object({ dato: z.coerce.date(), tekst: z.string() }))
       .default([]),
+    // Eldre prosjekter som ikke lenger er aktive. Vises i en egen, nedtonet liste.
+    // De får bare egen side hvis Markdown-filen har innhold.
+    arkivert: z.boolean().default(false),
     utkast: z.boolean().default(false),
   }),
 });
