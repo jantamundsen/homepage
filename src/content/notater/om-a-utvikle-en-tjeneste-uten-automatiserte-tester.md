@@ -6,7 +6,7 @@ type: podkast
 utkast: false
 ---
 
-I januar 2025 var jeg og kollegaen min Håkon Heskja gjester i Åpen kilde, podkasten til SpareBank 1 Utvikling. Vi snakket om hvorfor Spleis ikke har automatiserte tester, og hvordan det likevel går bra. Her er poengene mine fra samtalen.
+Jeg og kollegaen min Håkon Heskja var gjester i Åpen kilde, podkasten til SpareBank 1 Utvikling. Vi snakket om hvorfor Spleis ikke har automatiserte tester, og hvordan det likevel går bra. Her er poengene mine fra samtalen.
 
 Jeg har jobbet i Spleis siden 2017, et fintech-selskap med to millioner unike brukere i måneden. Kodebasen har ingen automatiserte tester, og er skrevet i JavaScript i både frontend og backend, uten typer. Det høres nok uansvarlig ut for mange, men jeg har sett det fungere godt i mange år.
 
